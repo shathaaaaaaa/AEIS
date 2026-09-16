@@ -336,6 +336,36 @@ button.tick.on:hover{background:#28692c;border-color:#28692c}
 .check-box{border:1px solid var(--line);border-radius:4px;padding:16px;margin-top:14px}
 .check-box .q{font-size:14.5px;font-weight:600;margin-bottom:10px}
 .check-box .opt{padding:10px 14px;font-size:14px;margin-bottom:8px}
+/* القراءة الصوتية للشرح */
+.tts-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:4px 0 14px}
+.tts-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--navy);border-radius:3px;padding:8px 15px;
+  font-size:13.5px;font-family:inherit;background:#fff;color:var(--navy);cursor:pointer;
+  transition:background .15s,color .15s;
+}
+.tts-btn:hover{background:#eef3f8}
+.tts-btn.on{background:#c62828;border-color:#c62828;color:#fff}
+.tts-btn.on:hover{background:#ad2121}
+.tts-btn[disabled]{opacity:.5;cursor:not-allowed}
+.tts-hint{font-size:12.5px;color:var(--ink-soft)}
+.tts-switch{
+  display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+  font-size:13.5px;color:var(--ink-soft);user-select:none;
+  border:1px solid var(--line);border-radius:3px;padding:7px 13px;background:#fff;
+  font-family:inherit;
+}
+.tts-switch .knob{
+  width:32px;height:18px;border-radius:9px;background:#c3cad1;position:relative;
+  transition:background .18s;flex:none;
+}
+.tts-switch .knob::after{
+  content:"";position:absolute;top:2px;inset-inline-end:2px;
+  width:14px;height:14px;border-radius:50%;background:#fff;transition:inset-inline-end .18s;
+}
+.tts-switch.on{color:var(--navy);border-color:var(--navy)}
+.tts-switch.on .knob{background:#2e7d32}
+.tts-switch.on .knob::after{inset-inline-end:16px}
 .feedback-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:13.5px;color:var(--ink-soft)}
 .feedback-row .fb{border:1px solid #c8d0d7;border-radius:3px;padding:8px 16px;font-size:13.5px;background:#fff;color:var(--ink)}
 .feedback-row .fb:hover{background:#f3f5f7}
@@ -434,6 +464,26 @@ button.tick.on:hover{background:#28692c;border-color:#28692c}
 
 /* الكويز */
 .quiz{max-width:660px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+/* شريط التعليم الجماعي */
+.bulk-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.bulk-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--navy);border-radius:3px;padding:9px 16px;
+  font-size:13.5px;font-family:inherit;background:var(--navy);color:#fff;cursor:pointer;
+  transition:background .15s;
+}
+.bulk-btn:hover{background:#0f3a5f}
+.bulk-btn.ghost{background:#fff;color:var(--ink-soft);border-color:#c8d0d7}
+.bulk-btn.ghost:hover{background:#f3f5f7;color:var(--ink)}
+.bulk-note{font-size:12.5px;color:var(--ink-soft)}
+/* زر الخروج من الكويز */
+.quiz-exit{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid #c8d0d7;border-radius:3px;padding:7px 14px;
+  font-size:13.5px;font-family:inherit;background:#fff;color:var(--ink);cursor:pointer;
+  transition:background .15s,border-color .15s;
+}
+.quiz-exit:hover{background:#fdeceb;border-color:#c62828;color:#c62828}
 .quiz .qhead{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--ink-soft);margin-bottom:6px}
 .quiz .qtopic{font-size:16px;font-weight:700;margin-bottom:20px}
 .quiz .qtext{font-size:16.5px;line-height:1.9;font-weight:600;margin-bottom:18px}
@@ -789,7 +839,7 @@ button:active{transform:scale(.985)}
   <div class="login-form">
     <h1>University of Jeddah</h1>
     <p class="sub">الدخول الموحد لأنظمة جامعة جدة</p>
-    <input id="uid" type="text" placeholder="الرقم الوظيفي أو رقم الطالب" value="4410456">
+    <input id="uid" type="text" placeholder="الرقم الوظيفي أو رقم الطالب" value="4419872">
     <input id="pwd" type="password" placeholder="كلمة السر" value="••••••••">
     <button class="signin" onclick="enterPortal()">Sign in</button>
     <p class="reset">Need to reset your password? <a href="#">Click here</a></p>
@@ -809,8 +859,8 @@ button:active{transform:scale(.985)}
     </div>
 
     <div class="who">
-      <div class="avatar">ش</div>
-      <span>شذى علي صالح الشهري</span>
+      <div class="avatar">ل</div>
+      <span>لمى سالم عبدالله الفارس</span>
     </div>
 
     <nav class="nav" id="nav">
@@ -984,8 +1034,8 @@ button:active{transform:scale(.985)}
     <!-- الرسائل -->
     <section class="page simple" id="page-messages">
       <div class="stream">
-        <div class="item"><div class="when">غير مقروءة · خيريه محمد عبدالله الاحمري</div><div class="what">تنبيه: يرجى رفع تقرير المعمل قبل يوم الجمعة ١٨ سبتمبر الساعة ١١:٥٩ مساءً.</div></div>
-        <div class="item"><div class="when">غير مقروءة · امجاد عيد محمد الصفراني</div><div class="what">تم تحديث ملف شرح التجربة الثالثة في محتوى المقرر.</div></div>
+        <div class="item"><div class="when">غير مقروءة · ريم عبدالله سالم الراشد</div><div class="what">تنبيه: يرجى رفع تقرير المعمل قبل يوم الجمعة ١٨ سبتمبر الساعة ١١:٥٩ مساءً.</div></div>
+        <div class="item"><div class="when">غير مقروءة · أمل ماجد حسن الفهد</div><div class="what">تم تحديث ملف شرح التجربة الثالثة في محتوى المقرر.</div></div>
         <div class="item"><div class="when">غير مقروءة · عمادة القبول والتسجيل</div><div class="what">تذكير بفترة الحذف والإضافة للفصل الدراسي الأول 2027.</div></div>
       </div>
     </section>
@@ -1067,6 +1117,8 @@ button:active{transform:scale(.985)}
           <small id="progNote"></small>
         </div>
 
+        <div class="bulk-bar" id="bulkBar"></div>
+
         <div id="cmpSlot"></div>
 
         <div id="daysList"></div>
@@ -1107,8 +1159,9 @@ const MASTERY = [
 ];
 
 const RISK_CASE = {
-  studentId: "4410456",
+  studentId: "4419872",
   courseCode: "SCIC322_A_14037_EL_202701",
+  courseShort: "SCIC322",                        // رمز المقرر المختصر
   courseName: "التحضيرات العضوية الخضراء",
   before: 62,               // مستوى الأداء الحالي = مؤشر المقرر في بطاقته
   previous: 80,             // المستوى قبل التراجع
@@ -1117,6 +1170,11 @@ const RISK_CASE = {
   quizTarget: 70,           // ومتوسط الكويزات المطلوب — لا تكفي علامات المهام وحدها
   baseCommitment: 61        // التزام المقرر قبل بدء الخطة
 };
+
+/* اسم المقرر مصحوبًا برمزه — يُستخدم في كل مواضع عرض المادة */
+function courseLabel(){
+  return `${RISK_CASE.courseName} (${RISK_CASE.courseShort})`;
+}
 
 /* نقاط الضعف مشتقة من مؤشرات الإتقان نفسها (STUDENT_DATA.mastery)
    حتى تتطابق الأرقام في صفحة المقررات وAEIS والخطة والمرشد الذكي.
@@ -1175,7 +1233,7 @@ const AEIS_API = "http://127.0.0.1:8000";
 
 /* بيانات الطالبة الحيّة — تُحدَّث من نتائج الكويزات داخل النظام قبل كل تحليل */
 const STUDENT_DATA = {
-  student_id: "4410456",
+  student_id: "4419872",
   course: "التحضيرات العضوية الخضراء",
   metrics: { exams: 58, quizzes: 55, assignments: 70, commitment: 61 },
   mastery: MASTERY,
@@ -1250,6 +1308,88 @@ function tutorTopics(){
   return STUDENT_DATA.mastery.map(m => ({topic: m.topic, score: m.score}));
 }
 
+/* ---- القراءة الصوتية للشرح (TTS) ---- */
+const TTS = {
+  supported: typeof window !== "undefined" && "speechSynthesis" in window,
+  enabled: true,     // المستخدمة تقدر تقفلها أو تشغّلها
+  speaking: false,
+  auto: true         // يقرأ تلقائيًا عند ظهور شرح جديد (إن كانت الخاصية مشغّلة)
+};
+
+if(TTS.supported && typeof speechSynthesis.onvoiceschanged !== "undefined"){
+  speechSynthesis.onvoiceschanged = () => {};   // تحميل قائمة الأصوات في المتصفحات التي تؤخرها
+}
+
+/* أفضل صوت عربي متاح، وإلا الافتراضي */
+function ttsVoice(){
+  if(!TTS.supported) return null;
+  const vs = speechSynthesis.getVoices() || [];
+  return vs.find(v => /^ar/i.test(v.lang)) || null;
+}
+
+/* تحويل الشرح إلى نص مقروء بترتيب منطقي */
+function lessonSpeech(L){
+  if(!L) return "";
+  const parts = [L.title];
+  (L.paragraphs || []).forEach(t => parts.push(t));
+  if(L.key_points && L.key_points.length){
+    parts.push("النقاط الأساسية.");
+    L.key_points.forEach(k => parts.push(k));
+  }
+  if(L.common_mistake) parts.push("خطأ شائع. " + L.common_mistake);
+  if(L.next_step) parts.push("الخطوة التالية. " + L.next_step);
+  return parts.join(". ").replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function speakLesson(){
+  if(!TTS.supported || !TTS.enabled || !tutor.lesson) return;
+  speechSynthesis.cancel();
+  const text = lessonSpeech(tutor.lesson);
+  if(!text) return;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "ar-SA";
+  u.rate = 0.95;
+  const v = ttsVoice();
+  if(v) u.voice = v;
+  u.onend   = () => { TTS.speaking = false; paintTts(); };
+  u.onerror = () => { TTS.speaking = false; paintTts(); };
+  TTS.speaking = true;
+  speechSynthesis.speak(u);
+  paintTts();
+}
+
+function stopSpeak(){
+  if(!TTS.supported) return;
+  speechSynthesis.cancel();
+  TTS.speaking = false;
+  paintTts();
+}
+
+function toggleSpeak(){ TTS.speaking ? stopSpeak() : speakLesson(); }
+
+/* تشغيل / إيقاف الخاصية بالكامل */
+function toggleTtsEnabled(){
+  TTS.enabled = !TTS.enabled;
+  if(!TTS.enabled) stopSpeak();
+  renderTutor();
+}
+
+function paintTts(){
+  const b = document.getElementById("ttsBtn");
+  if(b){
+    b.classList.toggle("on", TTS.speaking);
+    b.innerHTML = TTS.speaking ? `${ttsStopIcon} إيقاف القراءة` : `${ttsPlayIcon} استمعي للشرح`;
+  }
+  const sw = document.getElementById("ttsSwitch");
+  if(sw){
+    sw.classList.toggle("on", TTS.enabled);
+    sw.innerHTML = `<span class="knob"></span><span>القراءة الصوتية: ${TTS.enabled ? "مشغّلة" : "مغلقة"}</span>`;
+  }
+}
+
+const ttsPlayIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/><path d="M18.5 5.5a9 9 0 010 13"/></svg>';
+const ttsStopIcon = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
+
 function renderTutorControls(){
   const topics = tutorTopics();
   if(!tutor.topic) tutor.topic = topics[0] && topics[0].topic;
@@ -1263,10 +1403,14 @@ function renderTutorControls(){
     <button class="chip-btn ${s === tutor.style ? "on" : ""}" onclick="pickStyle('${s}')">${s}</button>`).join("")
     + `<button class="tutor-go" onclick="loadLesson()" ${tutor.busy ? "disabled" : ""}>
          ${tutor.busy ? "جارٍ التحضير…" : "اشرحي لي"}
-       </button>`;
+       </button>`
+    + (TTS.supported ? `<button class="tts-switch ${TTS.enabled ? "on" : ""}" id="ttsSwitch" onclick="toggleTtsEnabled()" aria-pressed="${TTS.enabled}">
+         <span class="knob"></span><span>القراءة الصوتية: ${TTS.enabled ? "مشغّلة" : "مغلقة"}</span>
+       </button>` : "");
 }
 
 function pickTopic(t){
+  stopSpeak();
   tutor.topic = t; tutor.depth = "متوسط"; tutor.lesson = null; tutor.error = "";
   renderTutor();
 }
@@ -1284,6 +1428,8 @@ function missedFor(topic){
 
 async function loadLesson(feedback){
   if(tutor.busy) return;
+  stopSpeak();
+  tutor.pendingSpeak = true;
   if(feedback) tutor.depth = nextDepth(tutor.depth, feedback);
   if(DEMO_MODE){ tutor.lesson = demoLesson(); tutor.error = ""; tutor.answered = false; renderTutor(); return; }
   tutor.busy = true; tutor.error = ""; tutor.answered = false;
@@ -1342,6 +1488,13 @@ function renderTutor(){
   box.innerHTML = `
     <div class="lesson">
       <h4>${L.title}${DEMO_MODE ? '<span class="demo-flag">وضع العرض</span>' : ""}</h4>
+      ${TTS.supported && TTS.enabled ? `
+        <div class="tts-row">
+          <button class="tts-btn ${TTS.speaking ? "on" : ""}" id="ttsBtn" onclick="toggleSpeak()">
+            ${TTS.speaking ? ttsStopIcon + " إيقاف القراءة" : ttsPlayIcon + " استمعي للشرح"}
+          </button>
+          <span class="tts-hint">يقرأ الشرح كاملًا بصوت مسموع</span>
+        </div>` : ""}
       ${L.paragraphs.map(p => `<p>${p}</p>`).join("")}
       ${L.key_points && L.key_points.length ? `<ul class="points">${L.key_points.map(k => `<li>${k}</li>`).join("")}</ul>` : ""}
       ${L.common_mistake ? `<div class="mistake"><b>خطأ شائع:</b> ${L.common_mistake}</div>` : ""}
@@ -1353,6 +1506,12 @@ function renderTutor(){
         <button class="fb" onclick="loadLesson('فهمت')">فهمت — أعمق قليلًا</button>
       </div>
     </div>`;
+
+  /* قراءة تلقائية للشرح الجديد إن كانت الخاصية مشغّلة */
+  if(TTS.supported && TTS.enabled && TTS.auto && tutor.pendingSpeak){
+    tutor.pendingSpeak = false;
+    setTimeout(speakLesson, 120);
+  }
 }
 
 /* أُزيل سؤال "تأكدي من فهمك" من الشرح بناءً على الطلب. */
@@ -1369,7 +1528,7 @@ async function loadSupport(){
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         course: STUDENT_DATA.course,
-        student_name: "شذى علي صالح الشهري",
+        student_name: "لمى سالم عبدالله الفارس",
         weaknesses: tutorTopics().map(t => ({topic: t.topic, score: t.score}))
       })
     });
@@ -1562,10 +1721,10 @@ function demoLesson(){
 const DEMO_SUPPORT = {
   summary: "ابدئي بأستاذة المقرر للموضوع الأضعف، ثم مركز الإرشاد لجلسة تقوية، ومجموعة الدراسة لحل المسائل.",
   matches: [
-    {name: "د. غاية علي عبدالله باحاذق", role: "أستاذة المقرر", when: "الأحد والثلاثاء 10:00 – 11:30 ص",
+    {name: "د. سارة خالد محمد العبدالله", role: "أستاذة المقرر", when: "الأحد والثلاثاء 10:00 – 11:30 ص",
      contact: "مبنى الكيمياء — مكتب 2/114", topic: "آليات التفاعل", priority: "عالية",
      why: "أضعف موضوع لديك (52%) ويحتاج شرحًا مباشرًا ومراجعة لأخطاء الكويز.",
-     message: "السلام عليكم د. غاية، أنا شذى الشهري من شعبة التحضيرات العضوية الخضراء. أواجه صعوبة في آليات التفاعل وتحديدًا التمييز بين SN1 وSN2. هل أستطيع الحضور في الساعة المكتبية يوم الأحد لمراجعة أخطائي في الكويز الأخير؟ شكرًا لوقتك."},
+     message: "السلام عليكم د. سارة، أنا لمى الفارس من شعبة التحضيرات العضوية الخضراء. أواجه صعوبة في آليات التفاعل وتحديدًا التمييز بين SN1 وSN2. هل أستطيع الحضور في الساعة المكتبية يوم الأحد لمراجعة أخطائي في الكويز الأخير؟ شكرًا لوقتك."},
     {name: "مركز الإرشاد وتعزيز التعلّم", role: "جلسات تقوية فردية مجانية", when: "حجز مسبق — يوميًا 9 ص – 3 م",
      contact: "نظام حجز المواعيد في بوابة الطالب", topic: "آليات التفاعل", priority: "متوسطة",
      why: "جلسة فردية تناسب إعادة بناء الأساس قبل اختبار الوحدة.",
@@ -1642,7 +1801,7 @@ function renderAlert(){
       <div class="ricon" aria-hidden="true">${okIcon}</div>
       <div class="rbody">
         <h3>تمت العودة إلى المسار السليم</h3>
-        <p>أحسنتِ! لاحظنا تحسنًا واضحًا في مستوى أدائك في مادة <span class="course-tag">${RISK_CASE.course || "التحضيرات العضوية الخضراء"}</span> بعد التزامك بالخطة العلاجية، وقد عدتِ إلى المسار السليم. واصلي على هذا النهج للحفاظ على مستواك.</p>
+        <p>أحسنتِ! لاحظنا تحسنًا واضحًا في مستوى أدائك في مادة <span class="course-tag">${courseLabel()}</span> بعد التزامك بالخطة العلاجية، وقد عدتِ إلى المسار السليم. واصلي على هذا النهج للحفاظ على مستواك.</p>
         <div class="ok-stats">
           <div>مستوى الأداء: <b>${RISK_CASE.before}% ← ${afterScore()}%</b></div>
           <div>نسبة التحسن: <b>+${afterScore() - RISK_CASE.before}%</b></div>
@@ -1661,7 +1820,7 @@ function renderAlert(){
       <div class="ricon" aria-hidden="true">${warnIcon}</div>
       <div class="rbody">
         <h3>تنبيه: تم رصد مؤشرات تعثر أكاديمي</h3>
-        <p>لاحظنا انخفاضًا في مستوى أدائك في مادة <span class="course-tag">${RISK_CASE.courseName}</span>، وقد تحتاجين إلى تدخل مبكر للمساعدة على تحسين مستواك والعودة إلى المسار السليم.</p>
+        <p>لاحظنا انخفاضًا في مستوى أدائك في مادة <span class="course-tag">${courseLabel()}</span>، وقد تحتاجين إلى تدخل مبكر للمساعدة على تحسين مستواك والعودة إلى المسار السليم.</p>
         <button class="aeis-btn" onclick="openAEIS()">
           الانتقال إلى AEIS
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>
@@ -1681,7 +1840,7 @@ function renderAEIS(){
         <span style="color:#2e7d32">${okIcon}</span>
         <h2>على المسار السليم</h2>
       </div>
-      <p class="subject">المادة: <b>${RISK_CASE.courseName}</b></p>
+      <p class="subject">المادة: <b>${courseLabel()}</b></p>
       <div class="level">
         <span class="num" style="color:#2e7d32">${afterScore()}%</span>
         <span class="cap">مستوى الأداء</span>
@@ -1701,7 +1860,7 @@ function renderAEIS(){
     </div>` : `
     <div class="status-card">
       <div class="top">${warnIcon}<h2>بحاجة إلى تدخل</h2></div>
-      <p class="subject">المادة: <b>${RISK_CASE.courseName}</b></p>
+      <p class="subject">المادة: <b>${courseLabel()}</b></p>
       <div class="level">
         <span class="num">${RISK_CASE.before}%</span>
         <span class="cap">مستوى الأداء</span>
@@ -1842,6 +2001,18 @@ function renderPlan(){
   document.getElementById("progNote").textContent = `أنجزتِ ${done} من ${total} مهمة · التحضيرات العضوية الخضراء`;
   document.getElementById("syncNote").textContent =
     `٧ أيام من ${fmtAr(dayDate(0))} إلى ${fmtAr(dayDate(6))} · جلسة يومية ٧:٠٠ م لمدة ٤٥ دقيقة`;
+
+  const allDone = done === total;
+  const bar = document.getElementById("bulkBar");
+  if(bar){
+    bar.innerHTML = `
+      <button class="bulk-btn" onclick="markAll(true)" ${allDone ? "disabled style=\"opacity:.45;cursor:not-allowed\"" : ""}>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5 9-10"/></svg>
+        تعليم كل المهام والكويزات
+      </button>
+      <button class="bulk-btn ghost" onclick="markAll(false)" ${done === 0 ? "disabled style=\"opacity:.45;cursor:not-allowed\"" : ""}>مسح الكل</button>
+      <span class="bulk-note">${done}/${total} منجزة</span>`;
+  }
 
   renderCmp();
   renderAlert();
@@ -1993,6 +2164,24 @@ function toggleQuiz(key){
   renderPlan();
 }
 
+/* تعليم كل المهام والكويزات دفعة واحدة، أو مسحها جميعًا */
+function markAll(on){
+  DAYS.forEach(d => { d.taskDone = on; });
+  Object.values(QUIZZES).forEach(qz => {
+    if(on){
+      qz.done = true;
+      qz.manual = true;
+      qz.score = qz.qs.length;
+    }else{
+      qz.done = false;
+      qz.manual = false;
+      qz.score = null;
+      qz.missed = [];
+    }
+  });
+  renderPlan();
+}
+
 function startQuiz(key){
   QUIZZES[key].missed = [];
   QUIZZES[key].manual = false;
@@ -2009,7 +2198,10 @@ function renderQuiz(){
   document.getElementById("quizView").innerHTML = `
     <div class="qhead">
       <span>السؤال ${quizState.i + 1} من ${qz.qs.length}</span>
-      <button class="back" style="margin:0" onclick="exitQuiz()">إنهاء والعودة</button>
+      <button class="quiz-exit" onclick="exitQuiz()" title="الخروج دون إكمال الكويز">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        الخروج من الكويز
+      </button>
     </div>
     <div class="qtopic">${qz.title}</div>
     <div class="qtext">${item.q}</div>
@@ -2177,6 +2369,13 @@ function downloadICS(){
   setTimeout(() => URL.revokeObjectURL(url), 1500);
 }
 
+/* زر Esc يخرج من الكويز أيضًا */
+document.addEventListener("keydown", e => {
+  if(e.key !== "Escape") return;
+  const qv = document.getElementById("quizView");
+  if(qv && !qv.hidden) exitQuiz();
+});
+
 function exitQuiz(){
   document.getElementById("quizView").hidden = true;
   document.getElementById("planView").hidden = false;
@@ -2197,13 +2396,13 @@ const COURSE_INFO = {
 };
 
 const COURSES = [
-  {term:"الفصل الدراسي الأول 2027", code:"SCBB343_BC2_18567_EL_202701", name:"استدامة النباتات والسياحه البي (BC2) (18567)", teacher:"عزيزه مهدي مهدي نهاري", color:"#35c7e0", open:true, fav:false, live:false},
-  {term:"الفصل الدراسي الأول 2027", code:"SCBI100_SC_18516_EL_202701", name:"الاستدامة البيئية (SC) (18516)", teacher:"عفاف عايد ظويهر الغامسي", color:"#f5c518", open:true, fav:false, live:false},
-  {term:"الفصل الدراسي الأول 2027", code:"SCIC322_A_14037_EL_202701", name:"التحضيرات العضوية الخضراء (A) (14037)", teacher:"غاية علي عبدالله باحاذق", color:"#2c6eef", open:true, fav:false, live:false},
-  {term:"الفصل الدراسي الأول 2027", code:"SCIC322_A2_18461_EL_202701", name:"التحضيرات العضوية الخضراء (A2) (18461)", teacher:"روان فهد مسلم الحمادي", color:"#7ee8dd", open:true, fav:false, live:false},
-  {term:"الفصل الدراسي الأول 2027", code:"SCIC323_A_14039_EL_202701", name:"التحليل الطيفي و الفولتامترى (A) (14039)", teacher:"خيريه محمد عبدالله الاحمري", color:"#e4237e", open:true, fav:false, live:false},
-  {term:"الفصل الدراسي الأول 2027", code:"SCIC323_A2_14041_EL_202701", name:"التحليل الطيفي و الفولتامترى (A2) (14041)", teacher:"امجاد عيد محمد الصفراني", color:"#17c3b2", open:true, fav:true, live:true},
-  {term:"الفصل الدراسي الأول 2027", code:"SCIC324_A_14042_EL_202701", name:"تطبيقات النانوتكنولوجى والحفز (A) (14042)", teacher:"رنا عمر حسن يحي", color:"#7dd321", open:true, fav:false, live:false}
+  {term:"الفصل الدراسي الأول 2027", code:"SCBB343_BC2_18567_EL_202701", name:"استدامة النباتات والسياحه البي (BC2) (18567)", teacher:"هدى ناصر سعيد الأحمد", color:"#35c7e0", open:true, fav:false, live:false},
+  {term:"الفصل الدراسي الأول 2027", code:"SCBI100_SC_18516_EL_202701", name:"الاستدامة البيئية (SC) (18516)", teacher:"منال صالح فهد النجار", color:"#f5c518", open:true, fav:false, live:false},
+  {term:"الفصل الدراسي الأول 2027", code:"SCIC322_A_14037_EL_202701", name:"التحضيرات العضوية الخضراء (A) (14037)", teacher:"سارة خالد محمد العبدالله", color:"#2c6eef", open:true, fav:false, live:false},
+  {term:"الفصل الدراسي الأول 2027", code:"SCIC322_A2_18461_EL_202701", name:"التحضيرات العضوية الخضراء (A2) (18461)", teacher:"دانة يوسف علي الحسن", color:"#7ee8dd", open:true, fav:false, live:false},
+  {term:"الفصل الدراسي الأول 2027", code:"SCIC323_A_14039_EL_202701", name:"التحليل الطيفي و الفولتامترى (A) (14039)", teacher:"ريم عبدالله سالم الراشد", color:"#e4237e", open:true, fav:false, live:false},
+  {term:"الفصل الدراسي الأول 2027", code:"SCIC323_A2_14041_EL_202701", name:"التحليل الطيفي و الفولتامترى (A2) (14041)", teacher:"أمل ماجد حسن الفهد", color:"#17c3b2", open:true, fav:true, live:true},
+  {term:"الفصل الدراسي الأول 2027", code:"SCIC324_A_14042_EL_202701", name:"تطبيقات النانوتكنولوجى والحفز (A) (14042)", teacher:"جواهر سعد عمر المنصور", color:"#7dd321", open:true, fav:false, live:false}
 ];
 
 const EVENTS = [
@@ -2291,6 +2490,7 @@ function showLockedNote(){
 
 function go(page){
   if(typeof LOCKED !== "undefined" && LOCKED.includes(page)) return;
+  if(typeof stopSpeak === "function") stopSpeak();   // أوقف القراءة عند مغادرة الصفحة
   const navKey = page === "plan" ? "aeis" : page;
   document.querySelectorAll("#nav button").forEach(b => b.classList.toggle("active", b.dataset.page === navKey));
   document.querySelectorAll(".page").forEach(p => p.classList.toggle("on", p.id === "page-" + page));
